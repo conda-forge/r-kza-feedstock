@@ -1,4 +1,4 @@
-{% set version = '4.1.0' %}
+{% set version = "4.1.0.1" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,12 +10,12 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/kza_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/kza/kza_{{ version }}.tar.gz
-  sha256: aa8700a629eba13eca658934d49ec73ee68ab14107edcab60e31f88e6b271989
+  sha256: 64b2e89e5c1968a55dd8b343b2bf93463a6f87379e4de19c6929571e11e3a7ef
 
 build:
-  skip: True  # [win]
-  merge_build_host: True  # [win]
-  number: 1001
+  skip: true  # [win]
+  merge_build_host: true  # [win]
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
@@ -44,10 +44,10 @@ test:
 
 about:
   home: https://CRAN.R-project.org/package=kza
-  license: GPL-3
+  license: GPL-3.0
   summary: Time Series Analysis including break detection, spectral analysis, KZ Fourier Transforms.
   license_family: GPL3
-  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'
+  license_file: {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3
 
 extra:
   recipe-maintainers:

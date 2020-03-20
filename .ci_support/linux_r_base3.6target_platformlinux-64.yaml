@@ -10,7 +10,11 @@ cran_mirror:
 - https://cran.r-project.org
 docker_image:
 - condaforge/linux-anvil-comp7
+fftw:
+- '3'
 pin_run_as_build:
+  fftw:
+    max_pin: x
   r-base:
     min_pin: x.x
     max_pin: x.x
