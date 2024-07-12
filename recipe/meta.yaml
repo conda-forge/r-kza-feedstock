@@ -1,6 +1,5 @@
 {% set version = "4.1.0.1" %}
 {% set posix = 'm2-' if win else '' %}
-{% set native = 'm2w64-' if win else '' %}
 
 package:
   name: r-kza
@@ -13,9 +12,9 @@ source:
   sha256: 64b2e89e5c1968a55dd8b343b2bf93463a6f87379e4de19c6929571e11e3a7ef
 
 build:
-  skip: true  # [win]
-  merge_build_host: true  # [win]
-  number: 3
+  # Checking windows to see if it passes. Uncomment the line if it fails.
+  # skip: true  # [win]
+  number: 4
   rpaths:
     - lib/R/lib/
     - lib/
@@ -23,7 +22,9 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}              # [not win]
+    - {{ stdlib("c") }}                # [not win]
     - {{ compiler('m2w64_c') }}        # [win]
+    - {{ stdlib("m2w64_c") }}          # [win]
     - {{ posix }}filesystem        # [win]
     - {{ posix }}make
     - {{ posix }}sed               # [win]
@@ -34,7 +35,6 @@ requirements:
     - fftw
   run:
     - r-base
-    - {{ native }}gcc-libs         # [win]
     - fftw
 
 test:
