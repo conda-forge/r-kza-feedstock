@@ -1,4 +1,4 @@
-{% set version = "4.2.0" %}
+{% set version = "4.2.1" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,7 +9,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/kza_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/kza/kza_{{ version }}.tar.gz
-  sha256: 7fb4f4ba2ed3ee9e5833383f5d2f6a0e462417b87a4511da739d81d9054b3957
+  sha256: 495039c999f1505698ac24cdfd839b040d75c6dcf0c0c0207ae4cb8ec7cdfb0a
 
 build:
   # Checking windows to see if it passes. Uncomment the line if it fails.
